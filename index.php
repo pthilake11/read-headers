@@ -14,5 +14,11 @@ function getRequestHeaders() {
 $headers = getRequestHeaders();
 
 foreach ($headers as $header => $value) {
-    echo "$header: $value <br />\n";
+    //echo "$header: $value <br />\n";
+    if ($header == "Authorization")
+    {
+        header('Content-Type: application/json; charset=utf-8');
+        echo json_encode(array('token': $value));
+        exit;
+    }
 }
