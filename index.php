@@ -18,7 +18,7 @@ foreach ($headers as $header => $value) {
     if ($header == "Authorization")
     {
         header('Content-Type: application/json; charset=utf-8');
-        file_put_contents('logs.txt', 'the token is '. $value . '. the message is '. $_POST['body']);
+        file_put_contents('logs.txt', 'the token is '. $value . '. the request is '. serialize($_REQUEST));
         echo json_encode(array('success' => true));
         exit;
     }
