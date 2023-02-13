@@ -18,7 +18,7 @@ foreach ($headers as $header => $value) {
     if ($header == "Authorization")
     {
         header('Content-Type: application/json; charset=utf-8');
-        echo json_encode(array('token': $value));
+        echo json_encode(array('token' => $value));
         exit;
     }
 }
