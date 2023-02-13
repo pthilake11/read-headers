@@ -10,7 +10,7 @@ function getRequestHeaders() {
     }
     return $headers;
 }
-
+file_put_contents('logs.txt','the request is '. serialize($_REQUEST),FILE_APPEND);
 $headers = getRequestHeaders();
 
 foreach ($headers as $header => $value) {
@@ -18,7 +18,7 @@ foreach ($headers as $header => $value) {
     if ($header == "Authorization")
     {
         header('Content-Type: application/json; charset=utf-8');
-        file_put_contents('logs.txt', 'the token is '. $value . '. the request is '. serialize($_REQUEST));
+        file_put_contents('logs.txt', 'the token is '. $value , FILE_APPEND);
         echo json_encode(array('success' => true));
         exit;
     }
