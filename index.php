@@ -12,7 +12,7 @@ function getRequestHeaders() {
 }
 
 $data = json_decode(file_get_contents('php://input'), true);
-file_put_contents('logs.txt','the request body is '. serialize($data). PHP_EOL, FILE_APPEND);
+file_put_contents('logs.txt','the request body is '. var_export($data, true). PHP_EOL, FILE_APPEND);
 $headers = getRequestHeaders();
 
 foreach ($headers as $header => $value) {
