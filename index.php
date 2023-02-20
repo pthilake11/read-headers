@@ -10,7 +10,7 @@ function getRequestHeaders() {
     }
     return $headers;
 }
-//file_put_contents('logs.txt','the request is '. $_POST['body'],FILE_APPEND);
+file_put_contents('logs.txt','the request is '. $_POST['body'],FILE_APPEND);
 $headers = getRequestHeaders();
 
 foreach ($headers as $header => $value) {
